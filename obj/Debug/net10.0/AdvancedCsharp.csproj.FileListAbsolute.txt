@@ -12,3 +12,4 @@ C:\Users\PC\My Files\Mastering_API_Course\AdvancedCsharp\obj\Debug\net10.0\refin
 C:\Users\PC\My Files\Mastering_API_Course\AdvancedCsharp\obj\Debug\net10.0\AdvancedCsharp.pdb
 C:\Users\PC\My Files\Mastering_API_Course\AdvancedCsharp\obj\Debug\net10.0\AdvancedCsharp.genruntimeconfig.cache
 C:\Users\PC\My Files\Mastering_API_Course\AdvancedCsharp\obj\Debug\net10.0\ref\AdvancedCsharp.dll
+C:\Users\PC\My Files\Mastering_API_Course\AdvancedCsharp\obj\Debug\net10.0\AdvancedCsharp.sourcelink.json
