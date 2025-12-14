@@ -6,16 +6,12 @@ internal class Program
     static void Main(string[] args)
     {
         // main to consume the Delegate 
-        CalculateDelegate dlg = Add;
-        Calculate(5, 7, dlg);
 
-        dlg = Subtract;
-        Calculate(5, 7, dlg);
+        // Old 
+        Calculate(5, 7, delegate (int num1, int num2) { return num1 * num2; });
 
-        Calculate(5, 7, Add);
-        Calculate(5, 7, Subtract);
-        Calculate(5, 7, Multiply);
-        Calculate(5, 7, Divide);
+        // Lampda expression -> preferred and 
+        Calculate(5, 7, (num1, num2) => num1 * num2);
 
 
     }
