@@ -1,36 +1,46 @@
-﻿
-// Extension Methods : its the operation of adding a methods to an existing data type 
-// so it can be reached by its variables 
+﻿namespace AdvancedCsharp;
 
-// Steps : 
-//1- create a static class 
-//2- make static methods with the first parameter in the format of [ this dataType parameter name ]
-
-
-int x = Convert.ToInt32(Console.ReadLine());
-
-if (x.isBetween(50, 100)) System.Console.WriteLine("valid interval");
-else System.Console.WriteLine("invalid interval");
-
-
-System.Console.WriteLine("hello world".RemoveWhiteSpaces());
-
-
-
-
-public static class IntExtensionMethods
+// Delegate : a reference to a function, the delegate must have the same the signature as the methods 
+internal class Program
 {
-    public static bool isBetween(this int value, int min, int max)
+    static void Main(string[] args)
     {
-        if (value >= min && value < max || value > min && value <= max) return true;
-        else return false;
+        // main to consume the Delegate 
+        CalculateDelegate dlg = Add;
+        Calculate(5, 7, dlg);
+
+        dlg = Subtract;
+        Calculate(5, 7, dlg);
+
+        Calculate(5, 7, Add);
+        Calculate(5, 7, Subtract);
+        Calculate(5, 7, Multiply);
+        Calculate(5, 7, Divide);
+
+
     }
+
+    // consumer for the CalculateDelegate 
+    static void Calculate(int num1, int num2, CalculateDelegate dlg)
+    {
+        // calculate value 
+        int res = dlg(num1, num2);
+        // print result 
+        System.Console.WriteLine(res);
+    }
+
+    // Delegate 
+    delegate int CalculateDelegate(int num1, int num2);
+
+
+    // methods to point at using the CalculateDelegate
+    static int Add(int num1, int num2) => num1 + num2;
+
+    static int Subtract(int num1, int num2) => num1 - num2;
+
+    static int Multiply(int num1, int num2) => num1 * num2;
+
+    static int Divide(int num1, int num2) => num1 / num2;
+
 }
 
-public static class StringExtensionMethods
-{
-    public static string RemoveWhiteSpaces(this string str)
-    {
-        return str.Replace(" ", "");
-    }
-}
