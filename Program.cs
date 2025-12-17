@@ -1,4 +1,5 @@
-﻿using System.Reflection.Metadata.Ecma335;
+﻿using System.Diagnostics;
+using System.Reflection.Metadata.Ecma335;
 
 namespace AdvancedCsharp;
 
@@ -6,63 +7,60 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        Stock s = new Stock("Bateekh");
-        s.Price = 100;
-        s.OnPriceChanged += Stock_OnPriceChanged;
+        // System.Console.WriteLine($"Process Id :{Process.GetCurrentProcess().Id}");
+        // System.Console.WriteLine($"Thread Id : {Thread.CurrentThread.ManagedThreadId}");
+        // System.Console.WriteLine($"Processor Id : {Thread.GetCurrentProcessorId()}");
 
-        s.ChangeStockPriceBy(0.05m);
-        s.ChangeStockPriceBy(-0.02m);
-        s.ChangeStockPriceBy(0.00m);
+        var wallet = new Wallet("Jawad", 30);
+        wallet.RunRandomTransactions();
+        System.Console.WriteLine("------------------------------------------------");
+        System.Console.WriteLine(wallet);
 
 
+        wallet.RunRandomTransactions();
+        System.Console.WriteLine("------------------------------------------------");
+        System.Console.WriteLine(wallet);
 
         Console.ReadKey();
     }
-    private static void Stock_OnPriceChanged(Stock stock, decimal oldPrice)
+
+
+    class Wallet
     {
-        if (stock.Price > oldPrice)
+        public string Name { get; private set; }
+        public int Bitcoin { get; private set; }
+
+        public Wallet(string name, int Bitcoin)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
+            this.Name = name;
+            this.Bitcoin = Bitcoin;
         }
-        else if (stock.Price < oldPrice)
+
+        public void Debit(int amount) => Bitcoin -= amount;
+        public void Credit(int amount) => Bitcoin += amount;
+
+        public void RunRandomTransactions()
         {
-            Console.ForegroundColor = ConsoleColor.Red;
+            int[] amounts = { 10, 20, 30, -20, 10, -10, 30, -10, 40, -20 };
+
+            foreach (var amount in amounts)
+            {
+                var absValue = Math.Abs(amount);
+                if (amount < 0)
+                    Debit(absValue);
+
+                else
+                    Credit(absValue);
+
+                System.Console.WriteLine($"Thread Id :{Thread.CurrentThread.ManagedThreadId} , Processor Id :{Thread.GetCurrentProcessorId()}");
+            }
         }
-        else
+
+        public override string ToString()
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            return $"Name :{Name} , Bitcoin : {Bitcoin}";
         }
-        System.Console.WriteLine($"{stock.Name} , {stock.Price}");
+
     }
+
 }
-
-delegate void StockPriceChangeHandler(Stock stock, decimal oldPrice);
-
-
-class Stock
-{
-    private decimal _price;
-    private string _name;
-
-    public event StockPriceChangeHandler OnPriceChanged;
-
-    public string Name => _name;
-    public decimal Price { get => this._price; set => this._price = value; }
-
-    public Stock(string name)
-    {
-        this._name = name;
-    }
-
-
-    public void ChangeStockPriceBy(decimal percent)
-    {
-        decimal oldPrice = Price;
-        Price += Price * (percent / 100);
-        if (OnPriceChanged != null)
-        {
-            OnPriceChanged(this, oldPrice);
-        }
-    }
-}
-
