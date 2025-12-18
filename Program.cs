@@ -18,8 +18,16 @@ internal class Program
 
         Thread t1 = new Thread(wallet.RunRandomTransactions);
         t1.Name = "T1";
-        Console.WriteLine(t1.IsBackground);
 
+        Console.WriteLine($"T1 after decleration : {t1.ThreadState}");
+
+        t1.Start();
+        Console.WriteLine($"T1 after start : {t1.ThreadState}");
+
+
+        var t2 = new Thread(new ThreadStart(wallet.RunRandomTransactions));
+        t2.Name = "T2";
+        t2.Start();
 
         Console.ReadKey();
     }
@@ -40,13 +48,15 @@ internal class Program
         {
             Thread.Sleep(1000);
             Bitcoin -= amount;
-            System.Console.WriteLine($"Thread Id :{Thread.CurrentThread.ManagedThreadId} , Processor Id :{Thread.GetCurrentProcessorId()}");
+            System.Console.WriteLine($"Thread Id :{Thread.CurrentThread.ManagedThreadId} ," +
+                $"Thread Name : {Thread.CurrentThread.Name} ,Processor Id :{Thread.GetCurrentProcessorId()}");
         }
         public void Credit(int amount)
         {
             Thread.Sleep(1000);
             Bitcoin += amount;
-            System.Console.WriteLine($"Thread Id :{Thread.CurrentThread.ManagedThreadId} , Processor Id :{Thread.GetCurrentProcessorId()}");
+            System.Console.WriteLine($"Thread Id :{Thread.CurrentThread.ManagedThreadId} ," +
+                $"Thread Name : {Thread.CurrentThread.Name} , Processor Id :{Thread.GetCurrentProcessorId()}");
         }
 
         public void RunRandomTransactions()
