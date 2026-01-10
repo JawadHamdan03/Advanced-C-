@@ -13,3 +13,18 @@ C:\Users\PC\My Files\Mastering_API_Course\AdvancedCsharp\obj\Debug\net10.0\Advan
 C:\Users\PC\My Files\Mastering_API_Course\AdvancedCsharp\obj\Debug\net10.0\AdvancedCsharp.genruntimeconfig.cache
 C:\Users\PC\My Files\Mastering_API_Course\AdvancedCsharp\obj\Debug\net10.0\ref\AdvancedCsharp.dll
 C:\Users\PC\My Files\Mastering_API_Course\AdvancedCsharp\obj\Debug\net10.0\AdvancedCsharp.sourcelink.json
+C:\Users\hamda\Desktop\Advanced-Csharp\bin\Debug\net10.0\AdvancedCsharp.exe
+C:\Users\hamda\Desktop\Advanced-Csharp\bin\Debug\net10.0\AdvancedCsharp.deps.json
+C:\Users\hamda\Desktop\Advanced-Csharp\bin\Debug\net10.0\AdvancedCsharp.runtimeconfig.json
+C:\Users\hamda\Desktop\Advanced-Csharp\bin\Debug\net10.0\AdvancedCsharp.dll
+C:\Users\hamda\Desktop\Advanced-Csharp\bin\Debug\net10.0\AdvancedCsharp.pdb
+C:\Users\hamda\Desktop\Advanced-Csharp\obj\Debug\net10.0\AdvancedCsharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hamda\Desktop\Advanced-Csharp\obj\Debug\net10.0\AdvancedCsharp.AssemblyInfoInputs.cache
+C:\Users\hamda\Desktop\Advanced-Csharp\obj\Debug\net10.0\AdvancedCsharp.AssemblyInfo.cs
+C:\Users\hamda\Desktop\Advanced-Csharp\obj\Debug\net10.0\AdvancedCsharp.csproj.CoreCompileInputs.cache
+C:\Users\hamda\Desktop\Advanced-Csharp\obj\Debug\net10.0\AdvancedCsharp.sourcelink.json
+C:\Users\hamda\Desktop\Advanced-Csharp\obj\Debug\net10.0\AdvancedCsharp.dll
+C:\Users\hamda\Desktop\Advanced-Csharp\obj\Debug\net10.0\refint\AdvancedCsharp.dll
+C:\Users\hamda\Desktop\Advanced-Csharp\obj\Debug\net10.0\AdvancedCsharp.pdb
+C:\Users\hamda\Desktop\Advanced-Csharp\obj\Debug\net10.0\AdvancedCsharp.genruntimeconfig.cache
+C:\Users\hamda\Desktop\Advanced-Csharp\obj\Debug\net10.0\ref\AdvancedCsharp.dll

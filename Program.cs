@@ -24,6 +24,7 @@ internal class Program
         t1.Start();
         Console.WriteLine($"T1 after start : {t1.ThreadState}");
 
+        t1.Join(); // after t1 finishes, t2 starts 
 
         var t2 = new Thread(new ThreadStart(wallet.RunRandomTransactions));
         t2.Name = "T2";
